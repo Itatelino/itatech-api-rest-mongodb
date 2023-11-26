@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itatech.itatechapirest.domain.User;
+import com.itatech.itatechapirest.dto.UserDTO;
 import com.itatech.itatechapirest.repository.UserRepository;
 import com.itatech.itatechapirest.services.exception.ObjectNotFoundException;
 
@@ -26,5 +27,12 @@ public class UserService {
 		}
 		return user;
 	}
-
+	
+	public User insert(User obj) {
+		return repo.insert(obj);
+	}
+	
+	public User fromDTO(UserDTO objDto) {
+		return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
+	}
 }

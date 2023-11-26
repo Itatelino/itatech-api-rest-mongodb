@@ -10,7 +10,7 @@ import com.itatech.itatechapirest.domain.User;
 import com.itatech.itatechapirest.repository.UserRepository;
 
 @Configuration
-public class Instantiation implements CommandLineRunner  {
+public class Instantiation implements CommandLineRunner {
 	
 	@Autowired
 	private UserRepository userRepository;
