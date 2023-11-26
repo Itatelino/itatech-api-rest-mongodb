@@ -8,4 +8,6 @@ import com.itatech.itatechapirest.domain.User;
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
 
+	User findOne(String id);
+
 }

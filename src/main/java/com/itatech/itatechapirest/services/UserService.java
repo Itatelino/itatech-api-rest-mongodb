@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.itatech.itatechapirest.domain.User;
 import com.itatech.itatechapirest.repository.UserRepository;
+import com.itatech.itatechapirest.services.exception.ObjectNotFoundException;
 
 @Service
 public class UserService {
@@ -16,6 +17,14 @@ public class UserService {
 	
 	public List<User> findAll() {
 		return repo.findAll();
+	}
+	
+	public User findById(String id) {
+		User user = repo.findOne(id);
+		if (user == null) {
+			throw new ObjectNotFoundException("Objeto não encontrado");
+		}
+		return user;
 	}
 
 }
